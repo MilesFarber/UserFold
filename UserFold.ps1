@@ -24,7 +24,7 @@ Write-Host "Scanning for available drives..."
 $drives = Get-PSDrive -PSProvider FileSystem | Select-Object -ExpandProperty Name
 Write-Host "Available drives: $($drives -join ', ')"
 do {
-  $drive = Read-Host "Enter the drive letter you want to use"
+  $drive = Read-Host "Enter the drive letter you want to use. It is heavily recommended that you do NOT use C. You also cannot use a subfolder, because some programs made by room temperature IQ developers will try to RENAME the subfolder for some fucked up reason, so you have no choice but to use the root of the drive."
   $drive = $drive.TrimEnd(":")
 } until ($drives -contains $drive.ToUpper())
 
