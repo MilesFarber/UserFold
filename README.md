@@ -11,5 +11,5 @@ This script transfers your entire user folder outside of C:\ and rearranges the 
 
 ## Usage
 ```
-Invoke-Expression ((new-object net.webclient).DownloadString('https://raw.githubusercontent.com/MilesFarber/UserFold/Leader/Z.ps1'))
+Invoke-Expression ((new-object net.webclient).DownloadString('https://raw.githubusercontent.com/MilesFarber/UserFold/Leader/UserFold.ps1'))
 ```
