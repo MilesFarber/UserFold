@@ -17,7 +17,7 @@ Set-ItemProperty -Path $path -Name "My Pictures" -Value "%USERPROFILE%\Pictures"
 Set-ItemProperty -Path $path -Name "My Video" -Value "%USERPROFILE%\Videos" -Type ExpandString
 Set-ItemProperty -Path $path -Name "Personal" -Value "%USERPROFILE%\Documents" -Type ExpandString
 
-Write-Output "This Script will now map your user folder to the Documents folder of your PortableApps drive. Remember to transfer all of your files to the new location to prevent C:\ failure induced data loss."
+Write-Output "This Script will now map your user folder to a drive that is different from C:\. Remember to transfer all of your files to the new location to prevent C:\ failure induced data loss."
 Write-Output "This will not delete any of your files, but MAKE SURE YOU HAVE AN EXTERNAL BACKUP OF ALL YOUR DATA BEFOREHAND, AND THAT SAID BACKUP IS UNPLUGGED FROM YOUR COMPUTER, IN CASE SOMETHING GOES WRONG."
 Write-Host "Scanning for available drives..."
 
@@ -30,6 +30,12 @@ do {
 
 Write-Host "You selected drive $drive`:\"
 $basePath = "$drive`:"
+Write-Output "LAST CHANCE TO CHECK THAT YOU BACKED UP EVERYTHING."
+Read-Host -Prompt "Press Enter thrice to continue..."
+Write-Output "YOU WILL NEED TO TRANSFER ALL OF YOUR FILES TO THE NEW LOCATION TO PREVENT C:\ FAILURE INDUCED DATA LOSS."
+Read-Host -Prompt "Press Enter twice to continue...."
+Write-Output "YOU HAVE BEEN WARNED."
+Read-Host -Prompt "Press Enter once to continue....."
 Write-Host "Mapping user folders to $drive`:\"
 
 $mappings = @{
