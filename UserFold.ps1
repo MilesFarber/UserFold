@@ -1,4 +1,8 @@
 try {
+Write-Output "Fixing Permissions..."
+Set-ExecutionPolicy -ExecutionPolicy Unrestricted -Scope CurrentUser
+Set-ExecutionPolicy -ExecutionPolicy Unrestricted -Scope LocalMachine
+Set-ExecutionPolicy -ExecutionPolicy Unrestricted -Scope Process
 Write-Output "This script will now delete your HKCU:\Software\Microsoft\Windows\CurrentVersion\Explorer\User Shell Folders, and recreate it, before the final mapping. This is to prevent any issues with pre-existing values. You can also use this to reset the user folders if something goes wrong."
 Write-Output "This will not delete any of your files, but MAKE SURE YOU HAVE AN EXTERNAL BACKUP OF ALL YOUR DATA BEFOREHAND, AND THAT SAID BACKUP IS UNPLUGGED FROM YOUR COMPUTER, IN CASE SOMETHING GOES WRONG."
 Read-Host -Prompt "Press Enter thrice to continue..."
